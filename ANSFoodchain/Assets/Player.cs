@@ -51,34 +51,6 @@ public class Player : MonoBehaviour
             }
             
         }
-        // else if (transform.position.x >=56)
-        // {
-        //     if(transform.position.y >=30)
-        //     {
-        //         transform.position = new Vector3(56, 30,0);
-        //     }
-        //     else if(transform.position.y <=-30)
-        //     {
-        //         transform.position = new Vector3(56,-30,0);
-        //     }
-        //     else{
-        //         transform.position = new Vector3(56, transform.position.y,0);
-        //     }
-        // }
-        // else if (transform.position.x <= -56)
-        // {
-        //     if(transform.position.y >=30)
-        //     {
-        //         transform.position = new Vector3(-56, 30,0);
-        //     }
-        //     else if(transform.position.y <=-30)
-        //     {
-        //         transform.position = new Vector3(-56,-30,0);
-        //     }
-        //     else{
-        //         transform.position = new Vector3(56, transform.position.y,0);
-        //     }
-        // }
 
         else{
             if (transform.position.x >=56)

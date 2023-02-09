@@ -16,9 +16,11 @@ public class playerOSC : MonoBehaviour
     //    osc.SetAddressHandler("/CubeZ", OnReceiveZ);
     }
 	
+
+
 	// Update is called once per frame
 	void Update () {
-	
+        Boundary();
 	}
 
 	void OnReceiveXY(OscMessage message){
@@ -49,14 +51,51 @@ public class playerOSC : MonoBehaviour
         transform.position = position;
     }
 
-    // void OnReceiveZ(OscMessage message) {
-    //     float z = message.GetFloat(0);
+    void Boundary()
+    {
+        if(transform.position.y >= 30)
+        {
+            //first check for upper right and left corners
+            if(transform.position.x >=56)
+            {
+                transform.position = new Vector3(56,30,0);
+            }
+            else if(transform.position.x <=-56)
+            {
+                transform.position = new Vector3(-56, 30,0);
+            }
+            else{
+                transform.position = new Vector3(transform.position.x, 30,0);
+            }
+        }
+        else if (transform.position.y <= -30)
+        {
+            if(transform.position.x >=56)
+            {
+                transform.position = new Vector3(56,-30,0);
+            }
+            else if(transform.position.x <=-56)
+            {
+                transform.position = new Vector3(-56,-30,0);
+            }
+            else{
+                transform.position = new Vector3(transform.position.x,-30,0);
+            }
+            
+        }
 
-    //     Vector3 position = transform.position;
+        else{
+            if (transform.position.x >=56)
+            {
+                transform.position = new Vector3(56, transform.position.y,0);
+            }
+            else if (transform.position.x <=-56)
+            {
+                transform.position = new Vector3(-56, transform.position.y,0);
+            }
+        }
+        
 
-    //     position.z = z;
-
-    //     transform.position = position;
-    // }
+    }
 
 }
