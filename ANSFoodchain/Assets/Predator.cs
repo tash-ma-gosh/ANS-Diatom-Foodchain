@@ -12,6 +12,10 @@ public class Predator : MonoBehaviour
     Vector2 moveDirection;
     [SerializeField] GameObject player;
 
+    private float nextIncrease = 0.0f;
+
+
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -22,11 +26,18 @@ public class Predator : MonoBehaviour
     {
         
         target = player.transform;
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(Time.time>nextIncrease){
+            nextIncrease +=5f;
+            moveSpeed += 2f;
+            Debug.Log(moveSpeed);
+        }
+        
         transform.position = Vector2.MoveTowards(transform.position,target.position, moveSpeed*Time.deltaTime);
         
     }
