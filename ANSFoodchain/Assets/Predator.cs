@@ -10,7 +10,7 @@ public class Predator : MonoBehaviour
     Rigidbody2D rb;
     Transform target;
     Vector2 moveDirection;
-    [SerializeField] GameObject player;
+    GameObject player;
 
     private float nextIncrease = 0.0f;
 
@@ -24,7 +24,7 @@ public class Predator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = GameObject.FindWithTag("Player");
         target = player.transform;
 
     }

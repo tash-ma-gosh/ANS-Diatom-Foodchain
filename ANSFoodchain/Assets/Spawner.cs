@@ -30,7 +30,9 @@ public class Spawner : MonoBehaviour
 
     void SpawnEnemy()
     {
+        
+        Vector3 randomRange = new Vector3 (Random.Range(-70,70),Random.Range(-40,40),0);
         Transform randomSpawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
-        GameObject newEnemy = Instantiate(Predator, randomSpawnPoint.position, Quaternion.identity);
+        GameObject newEnemy = Instantiate(Predator, randomRange, Quaternion.identity);
     }
 }

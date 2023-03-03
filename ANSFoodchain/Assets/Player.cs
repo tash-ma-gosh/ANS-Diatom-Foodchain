@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -10,13 +11,14 @@ public class Player : MonoBehaviour
     private Vector3 mousePosition;
     public float moveSpeed = 0.1f;
     Rigidbody2D rb;
+    public bool playerAlive;
 
             
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        playerAlive = true;
     }
 
     void Boundary()
@@ -75,12 +77,35 @@ public class Player : MonoBehaviour
 
         //boundary logic
         Boundary();
-                
+        IsPlayAlive();       
     }
+
+    
 
    
     void OnTriggerEnter2D(Collider2D col)
     {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("predatorPrefab");
+        foreach(GameObject enemy in enemies){
+            // Debug.Log("bloop");
+            GameObject.Destroy(enemy);
+        }
+
+        
+        
+
+        playerAlive = false;
+
+        //PauseGame();
+        //StartCoroutine(WaitForFunction());
+        
         Debug.Log("You've been eaten :3");
+    }
+
+    void IsPlayAlive(){
+        if (Input.GetKeyDown("space"))
+        {
+            Debug.Log(playerAlive);
+        }
     }
 }
