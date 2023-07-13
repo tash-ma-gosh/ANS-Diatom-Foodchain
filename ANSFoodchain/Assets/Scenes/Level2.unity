@@ -304,36 +304,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &175477227
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 175477228}
-  m_Layer: 0
-  m_Name: SpawnPoint4
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &175477228
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 175477227}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -72.1, y: -24.7, z: -30.994026}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &463620789
 GameObject:
   m_ObjectHideFlags: 0
@@ -511,7 +481,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1314415679
 GameObject:
@@ -734,7 +704,7 @@ RectTransform:
   m_Children:
   - {fileID: 31703442}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -753,7 +723,7 @@ GameObject:
   - component: {fileID: 1955365503}
   m_Layer: 0
   m_Name: Spawner
-  m_TagString: predatorPrefab
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -771,13 +741,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Predator: {fileID: 6814487241542499770, guid: 372fa47b5a4bac9468c4ac420aee0af3, type: 3}
-  spawnInterval: 4
+  spawnInterval: 2
   spawnPoints:
   - {fileID: 1955365504}
   - {fileID: 1377269195}
   - {fileID: 463620790}
-  - {fileID: 175477228}
-  minDistance: 2
 --- !u!4 &1955365504
 Transform:
   m_ObjectHideFlags: 0
@@ -855,6 +823,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3167533766672000732, guid: 15103cb684f89f44cbdc72a3c194d55b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
+    - target: {fileID: 3167533766672000732, guid: 15103cb684f89f44cbdc72a3c194d55b, type: 3}
+      propertyPath: m_Color.b
+      value: 0.5921569
+      objectReference: {fileID: 0}
+    - target: {fileID: 3167533766672000732, guid: 15103cb684f89f44cbdc72a3c194d55b, type: 3}
+      propertyPath: m_Color.g
+      value: 0.52156866
+      objectReference: {fileID: 0}
+    - target: {fileID: 3167533766672000732, guid: 15103cb684f89f44cbdc72a3c194d55b, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3167533766672000733, guid: 15103cb684f89f44cbdc72a3c194d55b, type: 3}
       propertyPath: m_Name
       value: Player
@@ -912,6 +896,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6814487241542499749, guid: 372fa47b5a4bac9468c4ac420aee0af3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 3625043607559282579, guid: 045b15ec09bba42448d89db77fa6f20a, type: 3}
     - target: {fileID: 6814487241542499770, guid: 372fa47b5a4bac9468c4ac420aee0af3, type: 3}
       propertyPath: m_Name
       value: Predator

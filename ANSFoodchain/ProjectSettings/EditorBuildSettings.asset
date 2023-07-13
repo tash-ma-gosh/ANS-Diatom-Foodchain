@@ -8,4 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FoodChainGame.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Level1_Transition.unity
+    guid: 33788412f5ad5594bbc233ed96cfd8fa
+  - enabled: 1
+    path: Assets/Scenes/Level2.unity
+    guid: 71d161768772d7d40a78a90c653c1ab3
   m_configObjects: {}

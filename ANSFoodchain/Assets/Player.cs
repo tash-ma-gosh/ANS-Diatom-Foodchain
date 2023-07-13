@@ -86,8 +86,9 @@ public class Player : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col)
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("predatorPrefab");
+        SceneManager.LoadScene("Level1_Transition");
         foreach(GameObject enemy in enemies){
-            // Debug.Log("bloop");
+            Debug.Log("bloop");
             GameObject.Destroy(enemy);
         }
 

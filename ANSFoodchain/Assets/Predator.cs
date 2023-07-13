@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Predator : MonoBehaviour
 {
-    // public static event Action<Predator> OnEnemyKilled;
-
+    
     [SerializeField] float moveSpeed =5f;
     Rigidbody2D rb;
     Transform target;
@@ -38,7 +37,44 @@ public class Predator : MonoBehaviour
             Debug.Log(moveSpeed);
         }
         
+
         transform.position = Vector2.MoveTowards(transform.position,target.position, moveSpeed*Time.deltaTime);
         
     }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+
+        Debug.Log("grrrahhhh");
+
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("predatorPrefab");
+
+        foreach(GameObject enemy in enemies){
+            Vector2 adjustedPosition = (Vector2)transform.position + new Vector2(0f, 0.35f);
+
+            // Move the instantiated prefab to the adjusted position
+            transform.position = adjustedPosition;
+        }
+        
+    }
+
+    // private bool IsValidPosition(Vector3 position)
+    // {
+    //     GameObject[] existingPrefabs = GameObject.FindGameObjectsWithTag("predatorPrefab");
+
+    //     foreach (GameObject existingPrefab in existingPrefabs)
+    //     {
+    //         float distance = Vector3.Distance(existingPrefab.transform.position, position);
+    //         if (distance < minDistance)
+    //         {
+    //             return false; // Minimum distance constraint violated
+    //         }
+    //     }
+
+    //     return true; // Position satisfies the minimum distance constraint
+    // }
+   
+
+
+
 }
