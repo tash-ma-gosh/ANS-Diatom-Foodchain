@@ -50,9 +50,10 @@ public class Spawner : MonoBehaviour
         //GameObject newPrefab = Instantiate(Predator, spawnPosition, Quaternion.identity);
         //newPrefab.GetComponent<PrefabChaseBehavior>().targetObject = targetObject;
 
-        Vector3 randomRange = new Vector3 (Random.Range(-70,70),Random.Range(-40,40),0);
+        //Vector3 randomRange = new Vector3 (Random.Range(-70,70),Random.Range(-40,40),0);
+        
         Transform randomSpawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
-        GameObject newEnemy = Instantiate(Predator, randomRange, Quaternion.identity);
+        GameObject newEnemy = Instantiate(Predator, randomSpawnPoint.position, Quaternion.identity);
     }
 
     

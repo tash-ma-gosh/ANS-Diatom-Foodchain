@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class playerOSC : MonoBehaviour
 {
@@ -96,6 +97,19 @@ public class playerOSC : MonoBehaviour
         }
         
 
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("predatorPrefab");
+        SceneManager.LoadScene("Level1_Transition");
+        foreach(GameObject enemy in enemies){
+            Debug.Log("bloop");
+            GameObject.Destroy(enemy);
+        }
+        
+        
+        Debug.Log("You've been eaten :3");
     }
 
 }

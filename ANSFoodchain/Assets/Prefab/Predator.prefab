@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 6814487241542499748}
   - component: {fileID: 6814487241542499749}
   - component: {fileID: 6814487241542499751}
-  - component: {fileID: 6814487241542499750}
+  - component: {fileID: 7866381492240955925}
   - component: {fileID: 6814487241542499745}
+  - component: {fileID: 1306160426}
   m_Layer: 0
   m_Name: Predator
   m_TagString: predatorPrefab
@@ -74,9 +75,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 1, g: 0.5226415, b: 0.5924903, a: 1}
-  m_FlipX: 0
+  m_Sprite: {fileID: 21300000, guid: 1b45b42c31db94d48a8f7b2c25a27553, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -97,9 +98,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec47c42e63ad4af43a352c31da021ed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 15
---- !u!58 &6814487241542499750
-CircleCollider2D:
+  moveSpeed: 10
+  maxOffsetDistance: 2.5
+  minDuration: 1.5
+  maxDuration: 3.5
+  verticalRange: 0.05
+  movementSpeed: 1
+  verticalFrequency: 5
+--- !u!70 &7866381492240955925
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -111,9 +118,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.008331022, y: 0.008331053}
-  serializedVersion: 2
-  m_Radius: 0.36670202
+  m_Offset: {x: -0.08182392, y: -0.011669354}
+  m_Size: {x: 2.6376264, y: 0.2765361}
+  m_Direction: 1
 --- !u!50 &6814487241542499745
 Rigidbody2D:
   serializedVersion: 4
@@ -135,3 +142,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1306160426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6814487241542499770}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef65b31be0dc4804c8c39ae0796acf18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTag: Player
+  initialSpeed: 50
+  maxSpeed: 100
+  accelerationRate: 5
+  minDistance: 2
+  avoidanceRadius: 3
