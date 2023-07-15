@@ -69,13 +69,13 @@ public class Player : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        mousePosition = Input.mousePosition;
-        mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
-        transform.position = Vector2.Lerp(transform.position, mousePosition, moveSpeed);
+        // mousePosition = Input.mousePosition;
+        // mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+        // transform.position = Vector2.Lerp(transform.position, mousePosition, moveSpeed);
 
-        //boundary logic
+        // //boundary logic
         Boundary();
         IsPlayAlive();       
     }

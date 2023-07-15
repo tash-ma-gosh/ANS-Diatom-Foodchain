@@ -36,7 +36,7 @@ public class UIManager : MonoBehaviour
     {
         if (!playerAlive){
             
-            Debug.Log("boom boom");
+            //Debug.Log("boom boom");
             //StartCoroutine(WaitForFunction());
         }
     }

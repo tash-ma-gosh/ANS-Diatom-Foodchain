@@ -6,7 +6,13 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/FoodChainGame.unity
+    path: Assets/Scenes/Menu.unity
+    guid: 09c37475ca5d9124c87f157f91ef22d9
+  - enabled: 1
+    path: Assets/Scenes/Introduction.unity
+    guid: 0489ce806035fcb46bc5c4a86252d70d
+  - enabled: 1
+    path: Assets/Scenes/Level1.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/Level1_Transition.unity
