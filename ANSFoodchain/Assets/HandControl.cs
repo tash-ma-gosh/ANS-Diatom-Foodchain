@@ -6,21 +6,22 @@ using TMPro;
 
 public class HandControl : MonoBehaviour
 {
-    public static BodySourceView bodySourceView;
-    private static GameObject playerBody;
-    private static GameObject handLeft;
-    private static GameObject handRight;
-    private static GameObject head;
+    public BodySourceView bodySourceView;
+    private GameObject playerBody;
+    private GameObject handLeft;
+    private GameObject handRight;
+    private GameObject head;
 
-    public static GameObject playerHand;
+    public GameObject playerHand;
     
-    private static float gameStartCountDown;
-    private static float countDownMax = 3;
+    private float gameStartCountDown;
 
-    private static float timeOut;
+    private float timeOut;
 
     private TextMeshProUGUI gameStateText;
     private SpriteRenderer poseGuide;
+
+    public bool devMode = false;
     
     public enum HandState{
         NoHands,
@@ -41,12 +42,12 @@ public class HandControl : MonoBehaviour
         StartGame
     }
     public static GameState gameState;
-    public static GameState previousGameState;
+    public GameState previousGameState;
 
     public static float[] playerBoundary = StartGameSequence.playerBoundary;
 
     public GameObject playerPrefab;
-    
+    public LevelLoader levelLoader;
     // Start is called before the first frame update
     void Start()
     {
@@ -57,6 +58,11 @@ public class HandControl : MonoBehaviour
 
         gameState = GameState.StartGame;
         previousGameState = GameState.StartGame;
+        //if (devMode){
+        if (handState == HandState.NoHands){
+            handState = HandState.RightRaise;
+            playerBoundary = new float[4]{3,-3,6,-6};
+        }
     }
 
     // Update is called once per frame
@@ -68,6 +74,7 @@ public class HandControl : MonoBehaviour
                 gameState = previousGameState;
                 poseGuide.gameObject.SetActive(false);
                 gameStateText.text = "";
+                playerPrefab.SetActive(true);
 
                 playerBody = bodySourceView.bodyContainer.transform.GetChild(0).gameObject;
                 handRight = playerBody.transform.Find("HandRight").gameObject;
@@ -100,17 +107,20 @@ public class HandControl : MonoBehaviour
         } else {
             if (gameState != GameState.NoPlayer && gameState != GameState.WaitPlayerReturn){
                 previousGameState = gameState;
+                playerPrefab.SetActive(false);
                 timeOut = 0;
                 Debug.Log("Reset timer");
                 poseGuide.gameObject.SetActive(true);
             }
             if(timeOut <= 10){
                 gameState = GameState.WaitPlayerReturn;
-                gameStateText.text = $"Please return to the circle\n{10-(int)timeOut}";
+                if(timeOut >= 0.5f){
+                    gameStateText.text = $"Please return to the circle\n{10-(int)timeOut}";
+                }
                 timeOut += Time.deltaTime;
             } else {
-                SceneManager.LoadScene("Menu");
-            }
+                levelLoader.LoadLevel("Menu");
+            } 
         }
     }
 

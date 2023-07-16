@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     public float moveSpeed = 0.1f;
     Rigidbody2D rb;
     public bool playerAlive;
-
+    [SerializeField] private string nextSceneName;
             
 
     // Start is called before the first frame update
@@ -86,7 +86,7 @@ public class Player : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col)
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("predatorPrefab");
-        SceneManager.LoadScene("Level1_Transition");
+        SceneManager.LoadScene(nextSceneName);
         foreach(GameObject enemy in enemies){
             Debug.Log("bloop");
             GameObject.Destroy(enemy);

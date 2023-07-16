@@ -51,6 +51,8 @@ public class StartGameSequence : MonoBehaviour
 
     public static float[] playerBoundary = new float[4];
 
+    public LevelLoader levelLoader;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -131,7 +133,8 @@ public class StartGameSequence : MonoBehaviour
                 break;
             case GameState.StartGame:
                 //gameStateText.text =  string.Join(",", playerBoundary);
-                SceneManager.LoadScene("Introduction");
+                
+                levelLoader.LoadLevel("Introduction");
                 break;
             }
         } else {

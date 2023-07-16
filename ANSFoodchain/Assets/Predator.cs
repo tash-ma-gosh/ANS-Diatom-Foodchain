@@ -45,9 +45,16 @@ public class Predator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (HandControl.gameState == HandControl.GameState.WaitPlayerReturn)
+        {
+            // Game is paused, stop the movement of enemies
+            rb.velocity = Vector2.zero;
+            return;
+        }
+        
         if(Time.time>nextIncrease){
             nextIncrease +=5f;
-            moveSpeed += 5f;
+            moveSpeed += 2f;
             Debug.Log(moveSpeed);
         }
         

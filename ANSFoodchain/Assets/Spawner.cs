@@ -23,6 +23,11 @@ public class Spawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (HandControl.gameState == HandControl.GameState.WaitPlayerReturn)
+        {
+            // Game is paused, do not spawn enemies
+            return;
+        }
         timeSinceLastSpawn += Time.deltaTime;
 
         if (timeSinceLastSpawn >= spawnInterval)
